@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LensArc — Ayoub | Photographer & Videographer</title>
+  <meta name="description" content="LensArc by Ayoub — Photographer & Videographer based in Tunisia (Bizerte & Tozeur). Weddings, portraits, couples, product photography." />
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070607;
+      --panel:#0b0b0b;
+      --muted:#bfc3c8;
+      --gold:#b9924b;
+      --gold-strong:#f0c974;
+      --glass: rgba(255,255,255,0.03);
+      --maxwidth:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);
+      color:#e6e6e6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+      line-height:1.5;
+    }
+
+    a{color:inherit}
+    img{max-width:100%;display:block}
+
+   
+    .wrap{max-width:var(--maxwidth);margin:0 auto;padding:0 20px}
+
+   
+    header{position:fixed;left:0;right:0;top:0;z-index:50;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.1));backdrop-filter: blur(6px);}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{font-weight:800;font-size:20px;color:var(--gold)}
+    .by{font-size:13px;color:var(--muted)}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:var(--muted);text-decoration:none;font-size:15px}
+    nav a:hover{color:var(--gold)}
+
+    /* Mobile menu */
+    .menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:10px;color:var(--muted)}
+
+    /* HERO */
+    .hero{min-height:88vh;display:flex;align-items:center;padding-top:72px;background-image: url(/image/nature/IMG_4517.JPG);background-size:cover;background-position:center;position:relative}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75));}
+    .hero-inner{position:relative;z-index:2;display:flex;align-items:center;gap:40px}
+    .hero-left{flex:1}
+    .title{font-size:48px;letter-spacing:-1px;margin:0}
+    .subtitle{color:var(--muted);margin-top:10px}
+    .cta-row{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 20px;border-radius:999px;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-strong));color:#070607;font-weight:600;box-shadow:0 6px 18px rgba(185,146,75,0.18)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .hero-right{flex:1}
+    .portrait{border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.6);transform:translateY(0);transition:transform .5s}
+    .portrait:hover{transform:translateY(-8px)}
+
+    /* Sections */
+    section{padding:72px 0}
+    h2{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin-top:8px}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+    .about-list{margin-top:16px;color:var(--muted)}
+    .chips{display:flex;gap:8px;margin-top:12px}
+    .chip{padding:8px 12px;background:var(--glass);border-radius:999px;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
+    .service{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .service .icon{font-size:28px}
+    .service h4{margin:10px 0 6px}
+    .service p{color:var(--muted);font-size:14px}
+
+    /* Portfolio */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .thumb{position:relative;border-radius:12px;overflow:hidden}
+    .thumb img{width:100%;height:230px;object-fit:cover;transition:transform .45s}
+    .thumb:hover img{transform:scale(1.06)}
+    .thumb .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.45));transition:opacity .25s}
+    .thumb:hover .overlay{opacity:1}
+    .overlay .view{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.35)}
+
+    /* Pricing */
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .price{color:var(--gold);font-weight:700;margin-top:6px}
+
+    /* Testimonials */
+    .test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .quote{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .quote img{width:48px;height:48px;border-radius:50%;object-fit:cover;margin-right:10px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .form input,.form textarea{width:100%;padding:12px;background:transparent;border:1px solid rgba(255,255,255,0.05);border-radius:10px;color:inherit}
+    .contact-info{color:var(--muted)}
+
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);}
+
+    /* Back to top */
+    .to-top{position:fixed;right:18px;bottom:18px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.04);display:none}
+
+    /* Responsive */
+/* Responsive grids */
+/* Responsive grids */
+@media (max-width:980px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:repeat(2,1fr)}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .test-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .menu-btn{display:inline-block}
+  nav ul{display:none}
+  .menu-open nav ul{
+    display:flex;
+    flex-direction:column;
+    background:rgba(0,0,0,0.45);
+    position:absolute;
+    top:72px;
+    right:20px;
+    padding:12px;
+    border-radius:8px
+  }
+}
+@media (max-width:620px){
+  .hero{padding:100px 0}
+  .title{font-size:32px}
+  .portrait img{height:260px}
+  .portfolio-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+}
+
+/* Portfolio */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  position: relative;
+}
+
+.thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  will-change: transform;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb:hover {
+  z-index: 10; /* تخرج فوق باقي الصور */
+  transform: scale(1.2); /* الصورة تكبر بالكامل */
+}
+
+/* Overlay effect */
+.thumb .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.45));
+  transition: opacity 0.3s ease;
+}
+
+.thumb:hover .overlay {
+  opacity: 1;
+}
+
+.overlay .view {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-size: 14px;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo">LensArc</div>
+      <div class="by">by Ayoub gharbi</div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="btn btn-ghost" href="https://wa.me/22920230" target="_blank" rel="noreferrer">WhatsApp</a>
+      <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Session</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-left">
+        <h1 class="title">LensArc</h1>
+        <div class="subtitle">Photographer &amp; Videographer</div>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Session</button>
+          <a class="btn btn-ghost" href="#portfolio">View Portfolio</a>
+        </div>
+        <div style="margin-top:12px;color:var(--muted)">Based in Tunisia — Bizerte &amp; Tozeur • Age 20</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="portrait">
+          <img src="/image/background.jpg" alt="Ayoub portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <h2>About Ayoub</h2>
+          <p class="lead">I'm Ayoub — LensArc. I love to freeze moments and craft stories with light.  photography became my language and video lets me add motion to emotions. I work across Bizerte and Tozeur creating wedding, portrait and commercial photography with an elegant, cinematic touch.</p>
+
+          <ul class="about-list">
+            <li> 20 years old — Based in Tunisia (Bizerte &amp; Tozeur)</li>
+            <li> Lenses: nikkor 18-105mm f/3.5, Nikon 50mm f/1.8G</li>
+            <li> Services: Photography, Videography, Editing, Albums &amp; Prints</li>
+          </ul>
+
+          <div class="chips">
+            <div class="chip">Instagram: @LensArc</div>
+            <div class="chip">WhatsApp: 22920230</div>
+            <div class="chip">Booking: Fast response</div>
+          </div>
+        </div>
+
+        <div>
+          <img src="/image/pro_ayoub.jpg" alt="studio" style="border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,0.7)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <p class="lead">Offering a range of photography and videography services designed to capture your story.</p>
+
+      <div class="services-grid">
+        <div class="service">
+          <div class="icon">📸</div>
+          <h4>Wedding Photography</h4>
+          <p>Capture the emotion and story of your special day — cinematic photos and heartfelt moments.</p>
+        </div>
+        <div class="service">
+          <div class="icon">🎞️</div>
+          <h4>Portraits</h4>
+          <p>Personal and editorial-style portraits focused on expression, light and character.</p>
+        </div>
+        <div class="service">
+          <div class="icon">❤️</div>
+          <h4>Couple Sessions</h4>
+          <p>Romantic and artistic sessions for couples — natural moments and styled shoots.</p>
+        </div>
+        <div class="service">
+          <div class="icon">🛍️</div>
+          <h4>Product Photography</h4>
+          <p>Professional product shots for e-commerce and branding with clean backgrounds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="wrap">
+      <h2>Portfolio</h2>
+      <p class="lead">A selection of recent work — photos and video thumbnails. Use the filters to view specific moods and sessions.</p>
+
+      <!-- Filters -->
+      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-ghost filter-btn" data-filter="all">All</button>
+        <button class="btn btn-ghost filter-btn" data-filter="wedding">Wedding</button>
+        <button class="btn btn-ghost filter-btn" data-filter="anniversary">Anniversary</button>
+        <button class="btn btn-ghost filter-btn" data-filter="portrait">Portrait</button>
+        <button class="btn btn-ghost filter-btn" data-filter="bride">Bride-to-be</button>
+        <button class="btn btn-ghost filter-btn" data-filter="graduation">Graduation</button>
+        <button class="btn btn-ghost filter-btn" data-filter="nature">Nature</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="portfolio-grid" id="portfolioGrid" style="margin-top:18px">
+        <!-- Wedding -->
+         <div class="thumb" data-cat="wedding"><img src="/image/AGN_0397.png " alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0236.png  " alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0268.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0233.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0225.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0224.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0222.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0218.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+       
+         <div class="thumb" data-cat="wedding"><img src="/image/shooting mariage/AGN_0025.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/mariage/AGN_0820.JPG" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="https://res.cloudinary.com/ddawcscea/image/upload/v1759159124/AGN_0798_mc36cr.jpg" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/mariage/AGN_0818.JPG" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/mariage/AGN_0762.JPG" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+        
+         <div class="thumb" data-cat="wedding"><img src="/image/mariage/AGN_0737.JPG" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+         <div class="thumb" data-cat="wedding"><img src="/image/mariage/AGN_0638.JPG" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="wedding"><img src="/image/AGN_0389.png" alt="wedding-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="wedding"><img src="/image/weeding/AGN_0086_1.png" alt="wedding-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="wedding"><img src="/image/AGN_0404.png" alt="wedding-3"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="wedding"><img src="/image/AGN_0286_1.png" alt="wedding-3"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="wedding"><img src="/image/weeding/AGN_0059.png" alt="wedding-3"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="wedding"><img src="/image/weeding/AGN_0020.png" alt="wedding-3"><div class="overlay"><div class="view">View</div></div></div>
+
+        <!-- Anniversary -->
+        <div class="thumb" data-cat="anniversary"><img src="/image/echrak cake.jpeg" alt="anniversary-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="anniversary"><img src="/image/echrcake.jpeg" alt="anniversary-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="anniversary"><img src="/image/echrrak.jpeg" alt="anniversary-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="anniversary"><img src="/image/echrak.jpeg" alt="anniversary-2"><div class="overlay"><div class="view">View</div></div></div>
+
+        <!-- Portrait -->
+         <div class="thumb" data-cat="portrait"><img src="/image/nourboujneh.jpeg" alt="portrait-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="portrait"><img src="/image/shooting mariage/AGN_0134.png" alt="portrait-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="portrait"><img src="/image/portrait mariem/DSC_0069.png" alt="portrait-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="portrait"><img src="/image/portrait mariem/DSC_0061.png" alt="portrait-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="portrait"><img src="/image/portrait mariem/DSC_0020.png" alt="portrait-3"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="portrait"><img src="/image/nour.jpeg" alt="portrait-3"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="portrait"><img src="/image/nour2.jpeg" alt="portrait-3"><div class="overlay"><div class="view">View</div></div></div>
+
+
+
+        <!-- Bride-to-be -->
+        <div class="thumb" data-cat="bride"><img src="/image/DSC_0161_1.png" alt="bride-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="bride"><img src="/image/DSC_0173_1.png" alt="bride-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="bride"><img src="/image/DSC_0196.png" alt="bride-2"><div class="overlay"><div class="view">View</div></div></div>
+
+        <!-- Graduation -->
+        <div class="thumb" data-cat="graduation"><img src="/image/AGN_0286_1.png" alt="graduation-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="graduation"><img src="/image/AGN_0292_1.png" alt="graduation-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="graduation"><img src="/image/AGN_0362.png" alt="graduation-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="graduation"><img src="/image/AGN_0303.png" alt="graduation-2"><div class="overlay"><div class="view">View</div></div></div>
+
+        <!-- Nature -->
+        <div class="thumb" data-cat="nature"><img src="/image/nature/image00002.jpeg" alt="nature-1"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="nature"><img src="/image/nature/IMG_4517.JPG" alt="nature-2"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="nature"><img src="/image/ponte.jpg" alt="nature-2"><div class="overlay"><div class="view">View</div></div></div>
+<div class="thumb" data-cat="nature"><img src="/image/marina.jpeg" alt="nature-2"><div class="overlay"><div class="view">View</div></div></div>
+
+
+        <!-- More placeholders (you can replace with your own images) -->
+    
+        <div class="thumb" data-cat="portrait"><img src="/image/echrrak.jpeg" alt="portrait-4"><div class="overlay"><div class="view">View</div></div></div>
+        <div class="thumb" data-cat="nature"><img src="/image/nature/IMG_4518.JPG" alt="nature-3"><div class="overlay"><div class="view">View</div></div></div>
+
+      </div>
+    </div>
+
+    <script>
+      // Portfolio filtering
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const thumbs = document.querySelectorAll('#portfolioGrid .thumb');
+      filterBtns.forEach(b=> b.addEventListener('click', ()=>{
+        const f = b.dataset.filter;
+        filterBtns.forEach(x=> x.classList.remove('active'));
+        b.classList.add('active');
+        thumbs.forEach(t=>{
+          if(f==='all') t.style.display='block';
+          else t.style.display = t.dataset.cat === f ? 'block' : 'none';
+        })
+      }))
+      // default show all
+      document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+
+      // simple lightbox: open image in new tab (quick) - enhance later
+      document.querySelectorAll('#portfolioGrid .thumb img').forEach(img=> img.addEventListener('click', ()=> window.open(img.src, '_blank')));
+    </script>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <h2>Pricing</h2>
+      <p class="lead">Packages crafted to be clear and simple. Contact for full details and custom quotes.</p>
+
+      <div class="pricing-grid">
+        <div class="card">
+          <div style="font-size:12px;color:var(--muted)">Package</div>
+          <div style="font-weight:700;margin-top:6px">Wedding Pack</div>
+          <div class="price">From *** TND</div>
+          <ul style="margin-top:10px;color:var(--muted);font-size:14px;line-height:1.6">
+            <li>• Full day coverage</li>
+            <li>• High-res photos</li>
+            <li>• Highlight video (add-on)</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Reserve</button></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:12px;color:var(--muted)">Package</div>
+          <div style="font-weight:700;margin-top:6px">Portrait Pack</div>
+          <div class="price">***</div>
+          <ul style="margin-top:10px;color:var(--muted);font-size:14px;line-height:1.6">
+            <li>• 1-hour session</li>
+            <li></li>
+            <li>• Online gallery</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Reserve</button></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:12px;color:var(--muted)">Package</div>
+          <div style="font-weight:700;margin-top:6px">Couple Pack</div>
+          <div class="price">***</div>
+          <ul style="margin-top:10px;color:var(--muted);font-size:14px;line-height:1.6">
+            <li>• 2-hour session</li>
+            <li>• edited photos</li>
+            <li>• Location scouting</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Reserve</button></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:12px;color:var(--muted)">Extras</div>
+          <div style="font-weight:700;margin-top:6px">A la carte</div>
+          <div class="price">Custom</div>
+          <ul style="margin-top:10px;color:var(--muted);font-size:14px;line-height:1.6">
+            <li>• Prints &amp; Albums</li>
+            <li>• Extra retouching</li>
+            <li>• Video editing</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button></div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;color:var(--muted);font-size:14px">Réservez à l’avance pour garantir votre date !</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="wrap">
+      <h2>Testimonials</h2>
+      <p class="lead">What clients say about working with LensArc.</p>
+
+      <div class="test-grid">
+        <div class="quote">
+          <div style="display:flex;align-items:center"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="Sarra"><div style="margin-left:10px"><div style="font-weight:700">Sarra &amp; Ali</div><div style="font-size:13px;color:var(--muted)">Client</div></div></div>
+          <p style="margin-top:12px;color:var(--muted)">“merci bcpp ☺ yeeeeseer hlowin machallah rabi ibereklek wnchalah farhtek 🙏”</p>
+        </div>
+
+        <div class="quote">
+          <div style="display:flex;align-items:center"><img src="https://images.unsplash.com/photo-1545996124-0c3e8b5a5d09?w=200&q=80" alt="Mourad"><div style="margin-left:10px"><div style="font-weight:700">Mourad</div><div style="font-size:13px;color:var(--muted)">Client</div></div></div>
+          <p style="margin-top:12px;color:var(--muted)">“Professional, creative and patient. My product shots doubled my sales.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="lead">For bookings and inquiries — send a message or contact via WhatsApp.</p>
+
+      <div class="contact-grid" style="margin-top:18px">
+        <div>
+          <div class="contact-info">
+            <div>WhatsApp: <a href="https://wa.me/22920230" style="color:var(--gold)">22920230</a></div>
+            <div style="margin-top:6px">Email: <span style="color:var(--muted)">gharbiayoub@gmail.com</span></div>
+            <div style="margin-top:6px">Instagram: <a href="https://instagram.com/LensArc" style="color:var(--gold)">@LensArc</a></div>
+          </div>
+
+          <div style="margin-top:12px">
+            <a class="btn btn-primary" href="https://wa.me/22920230">Message on WhatsApp</a>
+            <button class="btn btn-ghost" style="margin-left:8px" onclick="alert('Open booking link or popup')">Open Booking</button>
+          </div>
+        </div>
+
+        <form class="form" onsubmit="event.preventDefault();alert('Message sent — customize with your backend')">
+          <label style="display:block;margin-bottom:6px;color:var(--muted)">Name</label>
+          <input type="text" placeholder="Your name" required />
+
+          <label style="display:block;margin:12px 0 6px;color:var(--muted)">Email</label>
+          <input type="email" placeholder="you@example.com" required />
+
+          <label style="display:block;margin:12px 0 6px;color:var(--muted)">Message</label>
+          <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <div style="color:var(--muted);font-size:13px">Or contact via WhatsApp</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
+      <div style="font-weight:700;color:var(--gold)">LensArc</div>
+      <div style="color:var(--muted);font-size:14px">© <span id="year"></span> LensArc by Ayoub – All rights reserved.</div>
+    </div>
+  </footer>
+
+</main>
+
+<button id="toTop" class="to-top" title="Back to top">↑</button>
+
+<script>
+  // Dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const header = document.getElementById('header');
+  menuBtn && menuBtn.addEventListener('click', ()=> document.body.classList.toggle('menu-open'));
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 600) { toTop.style.display='block' } else { toTop.style.display='none' }
+  });
+  toTop.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+  // Smooth section fade-in on scroll (simple)
+  const appear = () => {
+    document.querySelectorAll('section').forEach((sec, i) => {
+      const r = sec.getBoundingClientRect();
+      if(r.top < window.innerHeight - 80) sec.style.opacity=1; else sec.style.opacity=0.2;
+    })
+  }
+  // apply initial styles
+  document.querySelectorAll('section').forEach(s=> s.style.opacity=0);
+  appear();
+  window.addEventListener('scroll', appear);
+</script>
+
+</body>
+</html>
